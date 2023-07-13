@@ -1,16 +1,31 @@
-import java.util.Locale;
+package org.launchcode;
 
 public class MenuItem {
-    // Field declarations
-    private String itemName;
     private double price;
     private String description;
-    private Locale.Category category;
+    private String category;
     private boolean isNew;
 
-    // Constructors, getters, setters here
+    public MenuItem(double p, String d, String c, boolean iN) {
+        this.price = p;
+        this.description = d;
+        this.category = c;
+        this.isNew = iN;
+    }
 
-    // Additional methods will go here if needed
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setNew(boolean aNew) {
+        isNew = aNew;
+    }
 }
-

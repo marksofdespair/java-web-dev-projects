@@ -1,32 +1,30 @@
+package org.launchcode;
+
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
 
 public class Menu {
-    // Class-specific field declarations for the MenuItem and Date Updated
-    private List<MenuItem> items;
-    private Date lastUpdate;
+    private Date lastUpdated;
+    private ArrayList<MenuItem> items;
 
-    // Constructor method for Menu Class
-    public Menu() {
-        this.items = new ArrayList<>();
-        this.lastUpdate = new Date();
+    public Menu(Date d, ArrayList<MenuItem> i) {
+        this.lastUpdated = d;
+        this.items = i;
     }
 
-    // Methods to add/remove items, display menu, etc.
-
-    public void addItem(MenuItem item) {
-        items.add(item);
-        lastUpdate = new Date(); // Update lastUpdate when a new item is added
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 
-    public String displayMenu() {
-        // Logic to display menu items here
+    public void setItems(ArrayList<MenuItem> items) {
+        this.items = items;
     }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public ArrayList<MenuItem> getItems() {
+        return items;
     }
 }
