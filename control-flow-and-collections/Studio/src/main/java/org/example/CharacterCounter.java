@@ -11,7 +11,7 @@ public class CharacterCounter {
         // S2: Store and/or update the count for a given character using a HashMap
         Map<Character, Integer> charCountMap = new HashMap<>();
         for (char c : phrase.toCharArray()) {
-            if (Character.isSpaceChar(c)) { // consider only letters and digits
+            if (Character.isLetterOrDigit(c)) { // consider only letters and digits
                 charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
             }
         }
