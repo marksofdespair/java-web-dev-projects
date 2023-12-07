@@ -10,6 +10,7 @@ public class CharacterCounter {
         // S1: Loop through the string one character at a time
         // S2: Store and/or update the count for a given character using a HashMap
         Map<Character, Integer> charCountMap = new HashMap<>();
+        //coming back to add .containskey instead
         for (char c : phrase.toCharArray()) {
             if (Character.isLetterOrDigit(c)) { // consider only letters and digits
                 charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
