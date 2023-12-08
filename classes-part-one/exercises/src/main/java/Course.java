@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+
 public class Course {
-    public static void main[]
+    private String topic;
+    private String instructor;
+    private ArrayList<Student> enrolledStudents;
 }
