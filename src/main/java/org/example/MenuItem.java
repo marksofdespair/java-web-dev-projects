@@ -1,43 +1,83 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.Objects;
 
-public class Menu {
-    // Class-specific field declarations for the Menu and Date Updated
-    private List<MenuItem> items;
-    private Date lastUpdate;
+public class MenuItem {
+    // Field declarations
+    private String itemName;
+    private double price;
+    private String description;
+    private Category category;
+    private boolean isNew;
 
-    // Constructor method for Menu Class
-    public Menu() {
-        this.items = new ArrayList<>();
-        this.lastUpdate = new Date();
+    // Constructors, getters, setters here
+    public MenuItem(String itemName, double price, String description, String categoryName, boolean isNew) {
+        this.itemName = itemName;
+        this.price = price;
+        this.description = description;
+        this.category = new Category(categoryName);
+        this.isNew = isNew;
     }
 
-    // Methods to add/remove items, display menu, etc.
-
-    public void addItem(MenuItem item) {
-        items.add(item);
-        lastUpdate = new Date(); // Update lastUpdate when a new item is added
+    // Additional methods here if needed
+    public String displayMenuItem() {
+        // Logic to display a single menu item
+        // You can format the item details as needed
+        return itemName + " - $" + price + " - " + description + " - Category: " + category.getCategoryName() + " - New: " + isNew;
     }
 
-    public void removeItem(MenuItem item) {
-        items.remove(item);
-        lastUpdate = new Date(); // Update lastUpdate when an item is removed
+    // Override equals/hashcode
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        MenuItem menuItem = (MenuItem) obj;
+        return Double.compare(menuItem.price, price) == 0 &&
+                itemName.equals(menuItem.itemName) &&
+                description.equals(menuItem.description) &&
+                category.equals(menuItem.category) &&
+                isNew == menuItem.isNew;
     }
 
-    public String displayMenu() {
-        // Logic to display menu items here
-        // You can iterate through 'items' and format them as needed
-        StringBuilder menuString = new StringBuilder();
-        for (MenuItem item : items) {
-            menuString.append(item.displayMenuItem()).append("\n");
+    @Override
+    public int hashCode() {
+        return Objects.hash(itemName, price, description, category, isNew);
+    }
+
+    // Inner class for Category instead of new Java Class
+    public class Category {
+        private String categoryName;
+
+        public Category(String categoryName) {
+            this.categoryName = categoryName;
         }
-        return menuString.toString();
-    }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
+        public String getCategoryName() {
+            return categoryName;
+        }
+
+        // Override equals and hashCode methods
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            MenuItem menuItem = (MenuItem) obj;
+            return Double.compare(menuItem.price, price) == 0 &&
+                    itemName.equals(menuItem.itemName) &&
+                    description.equals(menuItem.description) &&
+                    category.equals(menuItem.category) &&
+                    isNew == menuItem.isNew;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(itemName, price, description, category, isNew);
+        }
+
+        // Attempt at overriding toString for better display lol
+        @Override
+        public String toString() {
+            return categoryName;
+        }
     }
 }
