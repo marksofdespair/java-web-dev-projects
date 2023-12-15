@@ -3,7 +3,7 @@ package org.example;
 import java.util.Objects;
 
 public class MenuItem {
-    // Field declarations
+    // Field declarations for class
     private String itemName;
     private double price;
     private String description;
