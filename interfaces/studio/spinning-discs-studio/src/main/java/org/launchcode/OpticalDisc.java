@@ -3,4 +3,8 @@ public interface OpticalDisc {
     void storeData();
     void writeDataWithLaser();
     void readDataWithLaser();
+    void reportInformation();
+    void ejectDisc();
+    void startPlaying();
+    void stopPlaying();
 }
